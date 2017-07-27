@@ -1,25 +1,28 @@
-import isLucky from  '../../src/is-lucky';
+import isLucky from '../../src/is-lucky';
 
-describe('isLucky', () => {
+// use desribe function, class, module 
+describe('isLucky()', () => {
 
-  it('should return boolean', () => {
-        let inputData = 2137;
-        expect(isLucky(inputData)).to.be.a('boolean');
+  // use context for describing state
+  context('for lucky numbers', () => {
+    [1230, 123006, 0].forEach(function(luckyNumber) {
+
+        // make description of test short and to the point
+        it(`should confirm luckyness of number ${luckyNumber}`, () => {
+            expect(isLucky(luckyNumber)).to.be.true;
+        });
+
     });
+  });
+  // you can automate (to some extend), generating tests for multiple datasets
+  context('for unlucky numbers', () => {
+      [4354, 10, 1122].forEach(function (unluckyNumber){
 
-    it('should check if the sum of the first half of the digits is equal to the sum of the second half and return true', () => {
-        let inputData1 = 1230,
-            inputData2 = 134008;
-        expect(isLucky(inputData1)).to.be.true;
-        expect(isLucky(inputData2)).to.be.true;
-    });
+        it(`should confirm unluckyness of number ${unluckyNumber}`, () => {
+            expect(isLucky(unluckyNumber)).to.be.false;
+        });
 
-    it('should check if the sum of the first half of the digits is equal to the sum of the second half and return false', () => {
-        let inputData1 = 4354,
-            inputData2 = 10;
-        expect(isLucky(inputData1)).to.be.false;
-        expect(isLucky(inputData2)).to.be.false;
-    });
+      });
+  })
 
 });
-
