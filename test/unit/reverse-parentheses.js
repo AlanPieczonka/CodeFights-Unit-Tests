@@ -21,8 +21,10 @@ describe('reverseParentheses', () => {
   
     context('for strings without parentheses', () => {
     it('should return a string as it is ', () => {
-        let inputData = 'zxcvbvmn';
-        expect(reverseParentheses(inputData)).to.eq('zxcvbvmn');
+        let inputData1 = 'zxcvbvmn',
+            inputData2 = 'ghjklkhj';
+        expect(reverseParentheses(inputData1)).to.eq('zxcvbvmn');
+        expect(reverseParentheses(inputData2)).to.eq('ghjklkhj');
     }); 
     });
 
