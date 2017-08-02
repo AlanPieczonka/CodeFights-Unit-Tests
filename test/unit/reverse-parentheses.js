@@ -1,6 +1,6 @@
 import reverseParentheses from '../../src/reverse-parentheses'
 
-describe('reverseParentheses', () => {
+describe('reverseParentheses()', () => {
     
     it('should return a string', () => {
         let inputData = 'abc(cba)ab(bac)c';
@@ -20,12 +20,12 @@ describe('reverseParentheses', () => {
 
   
     context('for strings without parentheses', () => {
-    it('should return a string as it is ', () => {
-        let inputData1 = 'zxcvbvmn',
-            inputData2 = 'ghjklkhj';
-        expect(reverseParentheses(inputData1)).to.eq('zxcvbvmn');
-        expect(reverseParentheses(inputData2)).to.eq('ghjklkhj');
-    }); 
+        it('should return a string as it is ', () => {
+            let inputData1 = 'zxcvbvmn',
+                inputData2 = 'ghjklkhj';
+            expect(reverseParentheses(inputData1)).to.eq('zxcvbvmn');
+            expect(reverseParentheses(inputData2)).to.eq('ghjklkhj');
+        }); 
     });
 
 });

@@ -1,6 +1,6 @@
 import commonCharacterCount from '../../src/common-character-count';
 
-describe('commonCharacterCount', () => {
+describe('commonCharacterCount()', () => {
 
      it('should return number', () => {
         let inputData1 = 'aabcc',
