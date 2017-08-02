@@ -4,7 +4,7 @@ describe('alternatingSums()', () => {
 
   it('should return an array', () => {
     let input = [[32,54,123,43],[42,432]];
-    input.forEach(function(myArray){
+    input.forEach((myArray) => {
         expect(alternatingSums(myArray)).to.be.an('array');
     });
   });
