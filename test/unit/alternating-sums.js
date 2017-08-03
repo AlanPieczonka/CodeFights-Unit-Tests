@@ -11,17 +11,17 @@ describe('alternatingSums()', () => {
      });
    });
 
-  let testArray = [
+  const _testArray = [
     {input: [50, 60, 60, 45, 70], output: [180, 105]},
     {input: [100, 50], output: [100, 50]},
     {input: [100], output: [100, 0]},
     {input: [], output: [0, 0]}
   ]
 
-  testArray.forEach((object) => {
+  _testArray.forEach((object) => {
     context(`for [${object.input}]`, () => {
       it(`should return [${object.output}]`, () => {
-        expect(alternatingSums(object.input)).to.include(...object.output);
+        expect(alternatingSums(object.input)).to.be.deep.equal(object.output);
       })
     });
   })
