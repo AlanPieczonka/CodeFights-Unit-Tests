@@ -15,7 +15,7 @@ describe('alternatingSums()', () => {
     { input: [], output: [0, 0] }
   ];
 
-  _testArray.forEach(({input, output}) => {
+  _testArray.forEach(({ input, output }) => {
     it(`for [${input}] should return [${output}]`, () => {
       expect(alternatingSums(input)).to.be.deep.equal(output);
     });

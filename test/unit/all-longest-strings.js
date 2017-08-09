@@ -1,30 +1,36 @@
 import allLongestStrings from '../../src/all-longest-strings';
 
 describe('allLongestStrings()', () => {
+  it('always should retun an array', () => {
+    const _inputData = ['xzc', 'sadf', 'qwerty', 'ytrewq', 'sdfgh'];
+    expect(allLongestStrings(_inputData)).to.be.an('array');
+  });
 
-    it('should retun an array', () => {
-        let inputData = ['xzc', 'sadf', 'qwerty', 'ytrewq', 'sdfgh'];
-        
-        expect(allLongestStrings(inputData)).to.be.an('array');
+  context('for more than one element in an array', () => {
+    it('should return an array containing all longest strings', () => {
+      const _testArray = [
+        {
+          input: ['xzc', 'sadf', 'qwerty', 'ytrewq', 'sdfgh'],
+          output: ['qwerty', 'ytrewq']
+        },
+        {
+          input: ['neutra', 'Fingerstache', 'Mumblecore'],
+          output: ['Fingerstache']
+        }
+      ];
+
+      _testArray.forEach(({ input, output }) => {
+        expect(allLongestStrings(input)).to.deep.equal(output);
+      });
     });
+  });
 
-    context('for more than one element in an array', () => {
-        it('should return an array containing all longest strings', () => {
-            let inputData1 = ['xzc', 'sadf', 'qwerty', 'ytrewq', 'sdfgh'],
-                inputData2 = ['neutra', 'Fingerstache', 'Mumblecore'];
-
-            expect(allLongestStrings(inputData1)).to.include('qwerty', 'ytrewq');
-            expect(allLongestStrings(inputData2)).to.include('Fingerstache');
-        });
+  context('for one element in an array', () => {
+    it('should return element as it is', () => {
+      const _inputData1 = ['aa'],
+        _inputData2 = ['zxcvbnm'];
+      expect(allLongestStrings(_inputData1)).to.deep.equal(_inputData1);
+      expect(allLongestStrings(_inputData2)).to.deep.equal(_inputData2);
     });
-
-    context('for one element in an array', () =>{
-        it('should return element as it is', () => {
-            let inputData1 = ['aa'],
-            inputData2 = ['zxcvbnm'];
-            expect(allLongestStrings(inputData1)).to.include('aa');
-            expect(allLongestStrings(inputData2)).to.include('zxcvbnm');
-        });
-    });
-
+  });
 });
