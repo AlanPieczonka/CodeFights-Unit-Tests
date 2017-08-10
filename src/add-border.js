@@ -1,21 +1,36 @@
-export default function(picture) {
-  if(!Array.isArray(picture)){
+const BorderStyle = '*';
+
+export default function(words) {
+  if (_isInputInValid(words)) {
     return [];
   }
 
-  if (typeof picture[0] === 'undefined' || picture[0] === null) {
-    return picture;
-  }
-  let border = '';
+  let bordersWidth = 2
+  let wordWidth = words[0].length
 
-  picture = picture.map(x => '*' + x + '*'); //add asterisk to the begining and ending of the string
+  let bar = _bar(wordWidth + bordersWidth)
 
-  for (let i = 0; i < picture[0].length; i++) {
-    border += '*';
-  }
+  let picture = [];
 
-  picture.unshift(border); //add border of asterisks to the beggining of the array
-  picture.push(border); //add border of asterisks to the end of the array
+  picture.push(bar);
+  words.forEach(word => picture.push(_wrap(word)));
+  picture.push(bar);
 
   return picture;
+}
+
+const _isInputInValid = function(input) {
+  return !Array.isArray(input) || input.length == 0
+}
+
+const _bar = function(length) {
+  let bar = ''
+  for (let i = 0; i < length; i++) {
+    bar += BorderStyle;
+  }
+  return bar;
+}
+
+const _wrap = function(word) { 
+  return BorderStyle + word + BorderStyle;
 }
