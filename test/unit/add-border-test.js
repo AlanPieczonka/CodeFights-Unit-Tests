@@ -43,7 +43,7 @@ describe('addBorder()', () => {
   context('for empty arrays', () => {
     it('should return empty array', () => {
       const _testArray = [];
-      expect(addBorder(_testArray)).to.be.equal(_testArray);
+      expect(addBorder(_testArray)).to.be.deep.equal([]);
     });
   });
 
